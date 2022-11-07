@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mongo.demo.dto.BookDTO;
@@ -31,6 +32,12 @@ public class BookController {
     @GetMapping("/getAllBooks")
     public List<BookDTO> getAll(){
         return bookService.getAllBook();
+    }
+
+    
+    @GetMapping(value="/getBookByName")
+    public BookDTO getMethodName(@RequestParam String bookName) {
+        return bookService.getByBookName(bookName);
     }
 
 

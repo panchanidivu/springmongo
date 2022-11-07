@@ -40,6 +40,18 @@ public class BookService {
         
     }
 
+    public BookDTO getByBookName(String bookName){
+
+        BookDTO bookDTO = new BookDTO();
+        AppBook appBook = bookRepositoery.findByBookName(bookName);
+        bookDTO.setBookId(appBook.getBookId());
+        bookDTO.setBookName(appBook.getBookName());
+        bookDTO.setOther(appBook.getOther());
+        bookDTO.setSubject(appBook.getSubject());;
+        return bookDTO;
+
+    }
+
 
     
 }
